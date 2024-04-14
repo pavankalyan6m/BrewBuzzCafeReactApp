@@ -1,0 +1,90 @@
+.navbar {
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease; /* Add transition for smooth animation */
+}
+
+.navbar .logo {
+  width: 160px;
+  border-radius: 50px;
+  border: 2px solid #634832;
+  animation: logoAnimation 2.5s ease;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  color: black;
+  font-size: 16px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar button {
+  background: transparent;
+  font-size: 12px;
+  color: black;
+  border: 1.2px solid #634832;
+  padding: 10px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.navbar button:hover {
+  background-color: #976542;
+}
+
+.navbar .active {
+  padding: 0.5px;
+  color: #38220f;
+}
+
+.navbar li {
+  cursor: pointer;
+}
+
+.navbar-search-icon {
+  position: relative;
+}
+
+.navbar-search-icon .dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #976542;
+  border-radius: 50%;
+  top: -8px;
+  right: -8px;
+}
+
+.navbar-right input[type="text"] {
+  background-color: antiquewhite;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes logoAnimation {
+  0% {
+      transform: scale(0.8);
+      opacity: 0;
+  }
+  100% {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
