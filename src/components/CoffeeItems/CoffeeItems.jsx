@@ -1,17 +1,14 @@
-import React, { useState, useEffect, useRef } from "react";
-import { motion, useAnimation } from "framer-motion";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 import "./CoffeeItems.css";
 import { assets } from "../../assets/assets";
-import { fadeIn } from "../Variants";
 import LazyLoad from "react-lazyload";
 
 const CoffeeItems = ({ name, description, price, imagePath }) => {
   const [selectedSize, setSelectedSize] = useState("regular");
   const [newSizePrice, setNewSizePrice] = useState(price);
-  const controls = useAnimation();
   const [itemCount, setItemCount] = useState(0); // State for item count
-
-  const imgRef = useRef(null); // Ref to store image elements
+  const [isHovered, setIsHovered] = useState(false);
 
   // Function to handle size selection for a menu item
   const handleSizeSelection = (size, priceFactor) => {
@@ -33,14 +30,31 @@ const CoffeeItems = ({ name, description, price, imagePath }) => {
   };
 
   return (
-    <motion.div className="coffee-item">
+    <div className="coffee-item">
       <LazyLoad height={200} once>
-        <motion.div className="coffee-image-container" ref={imgRef}>
-          <img
+        <div
+          className="coffee-image-container"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <motion.img
             className="coffee-item-image"
             src={`/CofeeItems/${imagePath}.webp`}
             alt={name}
+            whileHover={{ scale: 1.1 }}
           />
+          {isHovered && (
+            <div className="coffee-item-desc-container">
+              <motion.p
+                className="coffee-item-desc"
+                initial={{ opacity: 0, y: 20 }} // Adjust initial position and animation direction
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                {description}
+              </motion.p>
+            </div>
+          )}
           {itemCount === 0 ? (
             // Render add icon only if count is 0
             <img
@@ -65,18 +79,17 @@ const CoffeeItems = ({ name, description, price, imagePath }) => {
               />
             </div>
           )}
-        </motion.div>
+        </div>
       </LazyLoad>
-      <motion.div className="coffee-item-info">
+      <div className="coffee-item-info">
         <div className="coffee-item-name-rating">
           <p style={{ fontWeight: "bold" }}>{name}</p>
           <img src={assets.rating_starts} alt="" />
         </div>
-        <p className="coffee-item-desc">{description}</p>
         <p style={{ fontWeight: "bold" }} className="coffee-item-price">
           ${newSizePrice}
         </p>
-        <p style={{ fontWeight: "400" }}>Select Your Coffee Size:</p>
+        <p style={{ fontWeight: "500" }}>Size Up Your Sips!</p>
         <div className="size-selection">
           <button
             className={selectedSize === "regular" ? "selected" : ""}
@@ -97,8 +110,8 @@ const CoffeeItems = ({ name, description, price, imagePath }) => {
             Large
           </button>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 };
 

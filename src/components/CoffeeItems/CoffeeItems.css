@@ -59,13 +59,13 @@ html {
 /* Styles for the coffee item information container */
 .coffee-item-info {
   padding: 15px;
-  background-color: antiquewhite;
-  border-radius: 0px 0px 10px 10px; /* Add rounded corners to bottom of info container */
+  background-color: #EAD8C0;
+  border-radius: 10px 10px 10px 10px; /* Add rounded corners to bottom of info container */
 }
 
 /* Styles for the size selection buttons */
 .size-selection {
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   justify-content: center; /* Center align buttons */
 }
@@ -75,7 +75,6 @@ html {
   margin-right: 30px;
 }
 
-
 /* Styles for the coffee item image */
 .coffee-item-image {
   width: 100%;
@@ -83,12 +82,6 @@ html {
   border-radius: 10px; /* Set border radius to create a curved border */
   height: 300px; /* Adjust image height */
   object-fit: cover; /* Maintain aspect ratio and cover container */
-  transition: transform 0.3s ease; /* Add smooth transition for hover effect */
-}
-
-/* Hover effect for the coffee item image */
-.coffee-item-image:hover {
-  transform: scale(1.1); /* Scale up image on hover */
 }
 
 .coffee-image-container {
@@ -104,15 +97,41 @@ html {
   border-radius: 50%;
 }
 
-
-.count-container{
+.count-container {
   position: absolute;
   bottom: 5px;
   right: 5px;
-  display:flex;
+  display: flex;
   align-items: center;
   gap: 5px;
   padding: 0px;
   border-radius: 50px;
   background-color: whitesmoke;
+}
+
+/* Define slide-in animation */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply slide-in animation to .coffee-item-desc-container */
+.coffee-item-desc-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(167, 146, 119, 0.9);
+  padding: 50px; /* Adjust padding using relative units */
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem; /* Adjust font size using relative units */
+  animation: fadeIn 1s slideIn 2s ease forwards;
 }
