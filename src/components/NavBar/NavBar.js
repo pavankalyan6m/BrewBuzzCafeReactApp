@@ -34,6 +34,15 @@ const NavBar = ({ theme, setTheme }) => {
     }
   };
 
+  const handleDiscoverOurBlendsClick = () => {
+    const ourBlendsSection = document.getElementById(
+      "our-blends-display-section"
+    );
+    if (ourBlendsSection) {
+      ourBlendsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   const handleAboutClick = () => {
     const aboutSection = document.getElementById("about-section");
     if (aboutSection) {
@@ -67,6 +76,7 @@ const NavBar = ({ theme, setTheme }) => {
         <li
           onMouseEnter={() => setMenu("products")}
           className={menu === "products" ? "active" : ""}
+          onClick={handleDiscoverOurBlendsClick}
         >
           Our Blends
         </li>

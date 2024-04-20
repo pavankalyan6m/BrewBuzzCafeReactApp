@@ -1,0 +1,144 @@
+/* OurBlendsItems.css */
+
+/* Ensure smooth scrolling for the whole page */
+html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Apply styles to each our blends item */
+  .our-blends-item {
+    width: 100%; /* Set width to 100% to ensure each item occupies the full width */
+    max-width: 100%; /* Ensure the item does not exceed the container's width */
+    margin: 2rem auto;
+    padding: 1rem;
+    cursor: pointer;
+    display: flex; /* Use flexbox to align items in a row */
+    flex-direction: column; /* Set flex-direction to column to stack elements vertically */
+    align-items: center; /* Center align items horizontally */
+  }
+  
+  .our-blends-item-image {
+    width: 100%; /* Set the image width to fill the container */
+    max-width: 100%; /* Ensure the image does not exceed the container's width */
+    border-radius: 10px; /* Apply border-radius if needed */
+    object-fit: cover; /* Maintain aspect ratio and cover container */
+  }
+  
+  .our-blends-item-info {
+    width: 100%; /* Ensure the info container spans the full width */
+    padding: 1rem; /* Add padding for spacing */
+    background-color: #EAD8C0; /* Set background color */
+    border-radius: 10px; /* Apply border-radius if needed */
+  }
+  
+  
+/* Styles for the size selection button */
+.size-selection button {
+    margin-right: 10px;
+    padding: 8px 15px;
+    background-color: #ece0d1;
+    color: black;
+    border: 1px solid antiquewhite; /* Add border to buttons */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add smooth transition for hover effect */
+  }
+  
+  /* Hover effect for the size selection button */
+  .size-selection button:hover {
+    background-color: #A79277; /* Change background color on hover */
+    transform: scale(1.1);
+    color: white; /* Change text color on hover */
+  }
+  /* Smooth transition for background-color */
+  .size-selection button {
+    transition: background-color 0.2s ease;
+  }
+  
+  
+  .size-selection button.selected {
+    background-color: #A79277; /* Change background color on hover */
+    color: white; /* Change text color on hover */
+  }
+  
+  /* Styles for the coffee item information container */
+.our-blends-item-info {
+    padding: 15px;
+    background-color: #EAD8C0;
+    border-radius: 10px 10px 10px 10px; /* Add rounded corners to bottom of info container */
+  }
+  
+  /* Styles for the size selection buttons */
+  .size-selection {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center; /* Center align buttons */
+  }
+  
+  
+  /* Adjust the margin of the last our blends item to avoid exceeding the container */
+  .our-blends-item:last-child {
+    margin-right: 30px;
+  }
+  
+  /* Styles for the our blends item image */
+  .our-blends-item-image {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .our-blends-image-container {
+    position: relative;
+  }
+  
+  .our-blends-image-container .add {
+    position: absolute;
+    width: 35px;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  
+  .count-container {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0px;
+    border-radius: 50px;
+    background-color: #e3c88d;
+  }
+  
+  /* Define slide-in animation */
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Apply slide-in animation to .our-blends-item-desc-container */
+  .our-blends-item-desc-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(167, 146, 119, 0.9);
+    padding: 50px;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    animation: fadeIn 1s slideIn 2s ease forwards;
+  }
+  
